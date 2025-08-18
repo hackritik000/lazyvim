@@ -10,3 +10,9 @@ vim.keymap.del("x", "s")
 vim.keymap.set("n", "<leader>s", function()
   require("flash").jump()
 end, { desc = "Flash jump" })
+
+vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Force quit insert mode" })
+
+vim.keymap.set("i", "<C-l>", function()
+  require("blink-cmp").show()
+end, { desc = "Show LSP" })
