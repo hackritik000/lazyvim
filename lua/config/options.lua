@@ -5,14 +5,15 @@
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 --   pattern = { "*.ts", "*.tsx" },
 --   callback = function()
---     -- vim.lsp.buf.code_action({
---     --   context = { only = { "source.organizeImports" } },
---     --   apply = true,
---     -- })
+--     vim.lsp.buf.code_action({
+--       context = { only = { "source.organizeImports" } },
+--       apply = true,
+--     })
 --
 --     local file_path = vim.fn.expand("%:p")
 --
---     -- Correct way: pass cmd and args separately
 --     vim.fn.system({ "biome", "lint", "--fix", file_path })
 --   end,
 -- })
+
+vim.g.root_spec = { ".git" }
