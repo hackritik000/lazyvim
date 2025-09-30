@@ -11,6 +11,10 @@ vim.keymap.set("n", "<leader>s", function()
   require("flash").jump()
 end, { desc = "Flash jump" })
 
+vim.keymap.set("v", "<leader>s", function()
+  require("flash").jump({ search = { mode = "search" } })
+end, { desc = "Flash jump in visual" })
+
 vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Force quit insert mode" })
 
 vim.keymap.set("i", "<C-l>", function()
