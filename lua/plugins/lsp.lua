@@ -3,27 +3,31 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        tsserver = {
+        vtsls = { -- Replace tsserver with vtsls
           root_dir = function(fname)
-            -- Detect nearest package.json instead of repo root
-            return require("lspconfig.util").root_pattern("package.json")(fname)
+            return require("lspconfig.util").root_pattern("package.json", ".git")(fname)
           end,
           settings = {
             typescript = {
-              preferences = {
-                importModuleSpecifierEnding = "auto",
-                preferTypeOnlyAutoImports = true, -- 👈 force "import type"
+              tsserver = {
+                maxTsServerMemory = 8192, -- Increase memory limit
               },
-            },
-            javascript = {
-              preferences = {
-                importModuleSpecifierEnding = "auto",
-                preferTypeOnlyAutoImports = true, -- 👈 for JS + JSDoc
+              inlayHints = {
+                parameterNames = { enabled = "none" },
+                parameterTypes = { enabled = false },
+                variableTypes = { enabled = false },
+                propertyDeclarationTypes = { enabled = false },
+                functionLikeReturnTypes = { enabled = false },
+                enumMemberValues = { enabled = false },
               },
             },
           },
         },
-        biome = {},
+        biome = {
+          root_dir = function(fname)
+            return require("lspconfig.util").root_pattern("package.json", "biome.json", ".git")(fname)
+          end,
+        },
       },
     },
   },
