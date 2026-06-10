@@ -1,4 +1,4 @@
-vim.g.root_spec = { ".git" }
+vim.g.root_spec = { ".git", "package.json", "tsconfig.json" }
 
 -- Auto-run Biome on save
 vim.api.nvim_create_autocmd("BufWritePost", {
