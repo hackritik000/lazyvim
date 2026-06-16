@@ -12,6 +12,17 @@ return {
       opts.servers.ts_ls = { enabled = false } -- new name for tsserver
       opts.servers.tsserver = { enabled = false }
       opts.servers.tsgo = { enabled = false }
+      opts.servers.tailwindcss = {
+        filetypes = {
+          "html",
+          "css",
+          "scss",
+          "sass",
+          "javascriptreact",
+          "typescriptreact",
+          "astro",
+        },
+      }
     end,
   },
 
